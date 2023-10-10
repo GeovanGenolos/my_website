@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System</title>
+    
+    <style>
+        ul {
+            float: right;
+            list-style-type: none;
+            margin-top: -350px;
+        }
+
+        ul li {
+            display: inline-block;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Century Gothic;
+        }      
+
+        ul li a:hover{
+           background-color: #fff;
+           color: rgb(62, 61, 61)
+        }
+
+        ul li.active a{
+          background-color: #fff;
+           color: rgb(62, 61, 61);
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 20px;
+            border: 1px solid transparent;
+            transition: 0.6s ease;
+        }
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url(space.gif);
+            overflow: hidden;
+        }
+
+        nav {
+            align-self: flex-end;
+            margin-right: 20px;
+        }
+        .container {
+            text-align: center;
+        }
+
+        .sun {
+            position: absolute;
+            top: 15em;
+            left: 15em;
+            width: 10em;
+            height: 10em;
+            background-color: yellow;
+            border-radius: 50%;
+            box-shadow: 0 0 3em white;
+            z-index: 3; 
+        }
+        .earth, .moon {
+            position: absolute;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+            border-width: 0.1em 0.1em 0 0;
+            border-radius: 50%; 
+        }
+        .earth {
+            top: 5em;
+            left: 5em;
+            width: 30em;
+            height: 30em;
+            animation: orbit 36.5s linear infinite;
+            z-index: 2; 
+        }
+        .moon {
+            top: 0;
+            right: 0;
+            width: 8em;
+            height: 8em;
+            animation: orbit 2.7s linear infinite;
+            z-index: 1; 
+        }
+        .earth::before,
+        .moon::before {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+        } 
+        .earth::before {
+            top: 2.8em;
+            right: 2.8em;
+            width: 3em;
+            height: 3em;
+            background-color: aqua;
+        }
+        .moon::before {
+            top: 0.8em;
+            right: 0.2em;
+            width: 1.2em;
+            height: 1.2em;
+            background-color: silver;
+        }
+        @keyframes orbit {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+       
+       @keyframes transitionIn {
+         from {
+           opacity: 0;
+           transform: rotateX(-10deg);
+          }
+        }
+
+        to {
+          opacity: 1;
+          transform: rotateX(0);
+        }
+
+        p {
+           padding: 5px;
+           color: #fff;
+           text-align: center;
+           margin-bottom: 5px;
+           animation: transitionIn 1s ease;
+       } 
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="sun"></div>
+        <div class="earth">
+            <div class="moon"></div>
+        </div>
+    </div>
+    <p>This is the Solar System.</p>
+    <p>This Solar System I made conists only of Sun, Earth, and Moon.</p>
+    <nav>
+        <ul>
+            <li><a href="index.html">Return home</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
